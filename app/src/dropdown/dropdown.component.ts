@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ButtonComponent } from '../button/button.component';
 import { UserService } from '../services/user.service';
 
@@ -19,6 +19,7 @@ export class DropdownComponent {
   showUserData = () => this.userService.showUserName();
   resetSettings = () => this.userService.reset();
 
+  @Input()
   protected dropdownContent = [
     { id: 1, label: 'Zresetuj ustawienia', click: this.resetSettings },
     {

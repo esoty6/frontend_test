@@ -31,7 +31,7 @@ describe('HeaderComponent', () => {
     const service = TestBed.inject(UserService);
     const compiled = fixture.nativeElement as HTMLElement;
     service.setUserName('Test Name');
-    service.toggleShowUserName();
+    service.showUserName();
     fixture.detectChanges();
     expect(compiled.textContent).toContain('Test Name');
   });

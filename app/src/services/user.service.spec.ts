@@ -23,7 +23,10 @@ describe('UserService', () => {
   it('should toggle user name visibility', () => {
     expect(service.getShowUserName()).toBeFalse();
 
-    service.toggleShowUserName();
+    service.showUserName();
     expect(service.getShowUserName()).toBeTrue();
+
+    service.reset();
+    expect(service.getShowUserName()).toBeFalse();
   });
 });
