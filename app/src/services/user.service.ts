@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
   userName = '';
-  showUserName = false;
+  shouldShowUserName = false;
 
   setUserName = (userName: string) => {
     this.userName = userName;
@@ -13,11 +13,13 @@ export class UserService {
 
   getUserName = () => this.userName;
 
-  getShowUserName = () => !!this.showUserName;
+  getShowUserName = () => !!this.shouldShowUserName;
 
-  toggleShowUserName = () => {
-    console.log(this.userName);
+  showUserName = () => {
+    this.shouldShowUserName = true;
+  };
 
-    this.showUserName = !this.showUserName;
+  reset = () => {
+    this.shouldShowUserName = false;
   };
 }

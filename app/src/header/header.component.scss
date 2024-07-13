@@ -1,35 +1,42 @@
 @use "variables" as *;
+@use "mixins" as *;
 
-.header {
-  background-color: $black-100;
-  height: 140px;
-  padding: 0 60px;
-  font-size: 2rem;
+$badge-width-mobile: 36px;
+$badge-width-desktop: 50px;
 
-  &__badge {
-    will-change: transform filter;
-    filter: invert(1);
-    position: relative;
+.badge {
+  will-change: transform filter;
+  filter: invert(1);
+  position: relative;
+  width: $badge-width-mobile;
+  height: calc($badge-width-mobile + 8px);
 
-    [class="badge-wrapper"]:hover & {
-      transform: scale(1.15);
-    }
+  [class="badge-wrapper"]:hover & {
+    transform: scale(1.15);
+  }
+
+  @include for-desktop-up {
+    width: 50px;
+    height: calc($badge-width-desktop + 8px);
   }
 }
 
 .badge-wrapper {
-  background-color: $gray-100;
-  width: 100px;
+  background-color: $gray;
   aspect-ratio: 1;
   border-radius: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: calc(2 * $badge-width-mobile);
+
+  @include for-desktop-up {
+    width: calc(2 * $badge-width-desktop);
+  }
 
   &:hover {
     cursor: pointer;
-    background-color: $orange-100;
-    background-size: 60px;
+    background-color: $orange;
   }
 }
 
