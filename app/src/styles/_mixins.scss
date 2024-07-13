@@ -1,0 +1,5 @@
+@mixin for-desktop-up {
+  @media screen and (min-width: 960px) {
+    @content;
+  }
+}
