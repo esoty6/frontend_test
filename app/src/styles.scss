@@ -1,8 +1,10 @@
+@use "mixins" as *;
+
 html {
   box-sizing: border-box;
   font-size: 8px;
 
-  @media screen and (min-width: 960px) {
+  @include for-desktop-up {
     font-size: 10px;
   }
 }
@@ -15,8 +17,11 @@ p {
 }
 
 body {
-  font-family: "Open Sans", serif;
   color: white;
   height: 100vh;
   width: 100vw;
+}
+
+* {
+  font-family: "Open Sans", serif;
 }
