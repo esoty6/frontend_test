@@ -1,0 +1,21 @@
+<section class="header">
+  <div class="header-container">
+    <a href="/" class="badge-wrapper" role="link">
+      <img
+        role="img"
+        loading="eager"
+        class="header__badge"
+        width="50"
+        height="50"
+        alt="HTML5 Badge"
+        src="https://seeklogo.com/images/H/html5-logo-0668063811-seeklogo.com.png"
+      />
+    </a>
+    <div class="personal-data-container">
+      <p>Zadanie <b>rekrutacyjne</b></p>
+      <ng-template [ngIf]="userService.getShowUserName()">
+        <p>{{ userService.getUserName() }}</p>
+      </ng-template>
+    </div>
+  </div>
+</section>
