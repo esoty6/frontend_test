@@ -25,7 +25,7 @@ $padding-desktop: 48px;
   flex: 1;
   display: grid;
   justify-items: center;
-  grid-template-rows: 120px repeat(2, 1fr);
+  grid-template-rows: 120px 250px auto;
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
 
