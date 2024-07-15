@@ -1,0 +1,59 @@
+<div class="blocks-content-container">
+  <div class="grid">
+    <div class="grid-header">
+      <h1 role="heading">Nagłówek H1</h1>
+      <hr class="grid-header__hr" />
+    </div>
+    <div class="grid-block grid-block-1">
+      <h2 role="heading">Blok 1</h2>
+      <form [formGroup]="form">
+        <div class="radio-group" role="radiogroup">
+          <input
+            role="radio"
+            type="radio"
+            id="option1"
+            [value]="1"
+            formControlName="option"
+          />
+          <label for="option1"> Opcja pierwsza</label>
+          <input
+            role="radio"
+            type="radio"
+            id="option2"
+            [value]="2"
+            formControlName="option"
+          />
+          <label for="option2"> Opcja druga </label>
+          <input
+            role="radio"
+            type="radio"
+            id="option3"
+            [value]="3"
+            formControlName="option"
+          />
+          <label for="option3"> Opcja losowa </label>
+        </div>
+      </form>
+    </div>
+    <div class="grid-block grid-block-2">
+      <h2 role="heading">Blok 2</h2>
+      <div class="button-container">
+        <app-button [disabled]="!this.option" (click)="replaceText()"
+          >Zastąp</app-button
+        >
+        <app-button [disabled]="!this.option" (click)="appendText()"
+          >Doklej</app-button
+        >
+      </div>
+    </div>
+
+    <div class="grid-block grid-block-3">
+      <h2 role="heading">
+        Blok z długą nazwą która sama się przytnie Lorem Ipsum
+      </h2>
+      <div class="text-content">
+        {{ getText() }}
+      </div>
+    </div>
+  </div>
+</div>
