@@ -7,7 +7,6 @@ $square-width-desktop: 100px;
 .square {
   width: $square-width-mobile;
   aspect-ratio: 1;
-  // border: 2px solid $gray;
   display: flex;
   flex-flow: column;
   justify-content: center;

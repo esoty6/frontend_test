@@ -17,7 +17,7 @@ export class DropdownComponent {
   protected selectedItemId = -1;
 
   showUserData = () => this.userService.showUserName();
-  resetSettings = () => this.userService.reset();
+  resetSettings = () => this.userService.resetEvent();
 
   @Input()
   protected dropdownContent = [
