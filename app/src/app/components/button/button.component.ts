@@ -11,4 +11,6 @@ import { ButtonVariant } from './button.types';
 export class ButtonComponent {
   @Input()
   variant: ButtonVariant = 'primary';
+  @Input()
+  disabled = false;
 }

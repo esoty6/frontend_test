@@ -32,7 +32,7 @@
             "styles": ["src/styles.scss"],
             "scripts": [],
             "stylePreprocessorOptions": {
-              "includePaths": ["src/styles"]
+              "includePaths": ["src/app/styles"]
             }
           },
           "configurations": {
@@ -91,7 +91,7 @@
             "styles": ["src/styles.scss"],
             "scripts": [],
             "stylePreprocessorOptions": {
-              "includePaths": ["src/styles"]
+              "includePaths": ["src/app/styles"]
             },
             "karmaConfig": "karma.conf.js"
           }

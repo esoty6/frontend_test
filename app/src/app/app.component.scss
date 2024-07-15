@@ -1,6 +1,15 @@
 @use "variables" as *;
+@use "mixins" as *;
 
 .main {
   min-height: calc(100% - 2 * $wrapper-height);
   background-color: $blue;
+  display: flex;
+  flex-direction: column;
+}
+
+app-blocks-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
 }
