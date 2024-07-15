@@ -1,0 +1,27 @@
+@use "mixins" as *;
+
+html {
+  box-sizing: border-box;
+  font-size: 8px;
+
+  @include for-desktop-up {
+    font-size: 10px;
+  }
+}
+
+html,
+body,
+p {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  color: white;
+  height: 100vh;
+  width: 100vw;
+}
+
+* {
+  font-family: "Open Sans", serif;
+}

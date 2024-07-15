@@ -1,0 +1,54 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+$badge-width-mobile: 36px;
+$badge-width-desktop: 50px;
+
+.badge {
+  will-change: transform filter;
+  filter: invert(1);
+  position: relative;
+  width: $badge-width-mobile;
+  height: calc($badge-width-mobile + 8px);
+
+  [class="badge-wrapper"]:hover & {
+    transform: scale(1.15);
+  }
+
+  @include for-desktop-up {
+    width: 50px;
+    height: calc($badge-width-desktop + 8px);
+  }
+}
+
+.badge-wrapper {
+  background-color: $gray;
+  aspect-ratio: 1;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(2 * $badge-width-mobile);
+
+  @include for-desktop-up {
+    width: calc(2 * $badge-width-desktop);
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: $orange;
+  }
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.personal-data-container {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-end;
+}

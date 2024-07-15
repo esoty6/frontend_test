@@ -1,0 +1,48 @@
+<div class="dropdown-container">
+  <div class="dropdown" [class.dropdown--open]="dropdownIsOpen">
+    <app-button variant="secondary" (click)="toggleDropdown()">
+      <p>Pokaż</p>
+      <img
+        title="chevron"
+        class="chevron"
+        [class.chevron--open]="dropdownIsOpen"
+        role="img"
+        loading="lazy"
+        alt="chevron up"
+        width="24"
+        height="24"
+        src="https://www.svgrepo.com/show/507593/chevron-up-alt.svg"
+      />
+    </app-button>
+  </div>
+
+  <div
+    class="dropdown-content"
+    [class.dropdown-content--visible]="dropdownIsOpen"
+    role="menu"
+    (mouseleave)="dropdownIsOpen = false"
+  >
+    <button
+      *ngFor="let item of dropdownContent"
+      class="dropdown-item"
+      (click)="optionSelect(item.id, item.click)"
+      role="menuitem"
+    >
+      <div class="dropdown-item-wrapper">
+        <img
+          title="chevron"
+          role="img"
+          class="item-chevron"
+          loading="lazy"
+          alt="chevron right"
+          width="24"
+          height="24"
+          src="https://www.svgrepo.com/show/507593/chevron-up-alt.svg"
+        />
+        <p id="{{ item.label }}">
+          {{ item.label }}
+        </p>
+      </div>
+    </button>
+  </div>
+</div>
