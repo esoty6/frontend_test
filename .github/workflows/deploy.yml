@@ -1,0 +1,40 @@
+name: Deploy App
+
+on: push
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    name: Deploy app
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.14.0"
+
+      - name: Install dependencies
+        uses: ./.github/actions/yarn
+        with:
+          cwd: "./app"
+          enable-corepack: true
+          cache-node-modules: true
+          cache-install-state: true
+
+      - name: Build app
+        working-directory: ./app
+        run: yarn ng build
+
+      - name: Run tests
+        working-directory: ./app
+        run: yarn ng t --progress=true --source-map=false --browsers=ChromeHeadless --watch=false
+
+      - name: Deploy to Netlify
+        if: ${{ github.ref_name == 'master' || github.ref_name == 'dev' }}
+        uses: ./.github/actions/netlify
+        with:
+          auth-token: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          site-id: ${{ secrets.NETLIFY_SITE_ID }}
+          deploy-to-prod: ${{ github.ref_name == 'master' }}
