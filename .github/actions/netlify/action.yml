@@ -22,9 +22,9 @@ runs:
       uses: nwtgck/actions-netlify@v3.0
       with:
         publish-dir: "./app/dist/app/browser"
-        production-branch: ${{ inputs.deploy-to-prod && 'dev' || 'master' }}
+        production-branch: ${{ inputs.deploy-to-prod && 'master' || 'dev' }}
         production-deploy: ${{ inputs.deploy-to-prod }}
-        alias: ${{ inputs.deploy-to-prod && 'dev' || '' }}
+        alias: dev
       env:
         NETLIFY_AUTH_TOKEN: ${{ inputs.auth-token }}
         NETLIFY_SITE_ID: ${{ inputs.site-id }}
