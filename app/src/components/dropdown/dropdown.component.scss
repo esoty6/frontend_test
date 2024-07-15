@@ -3,10 +3,12 @@
 
 $dropdown-width: 15vw;
 $dropdown-min-width: 160px;
+$dropdown-max-width: 320px;
 
 .dropdown {
   width: $dropdown-width;
   min-width: $dropdown-min-width;
+  max-width: $dropdown-max-width;
   position: relative;
   z-index: 2;
 }
@@ -26,6 +28,7 @@ $dropdown-min-width: 160px;
 .dropdown-content {
   width: $dropdown-width;
   min-width: $dropdown-min-width;
+  max-width: $dropdown-max-width;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -39,10 +42,12 @@ $dropdown-min-width: 160px;
   gap: 8px;
   transition: all 0.25s ease-in;
   visibility: hidden;
+  opacity: 0;
 
   &--visible {
-    bottom: 100%;
+    bottom: 105%;
     visibility: visible;
+    opacity: 1;
   }
 
   @include for-desktop-up {

@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { UserService } from '../../services/user.service';
 import { ButtonComponent } from '../button/button.component';
-import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-dropdown',

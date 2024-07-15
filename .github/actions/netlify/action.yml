@@ -1,0 +1,29 @@
+name: "Netlify action"
+description: "Deploy app"
+inputs:
+  deploy-to-prod:
+    description: "Deploy to prod"
+    required: false
+    default: "false"
+  auth-token:
+    description: "Netlify personal token"
+    required: true
+    default: ""
+  site-id:
+    description: "Netlify site id"
+    required: true
+    default: ""
+
+runs:
+  using: "composite"
+
+  steps:
+    - name: Deploy to Netlify
+      uses: nwtgck/actions-netlify@v3.0
+      with:
+        publish-dir: "./app/dist/app/browser"
+        production-branch: ${{ inputs.deploy-to-prod }}
+        alias: ${{ inputs.deploy-to-prod != 'true' && 'dev' || '' }}
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ inputs.auth-token }}
+        NETLIFY_SITE_ID: ${{ inputs.site-id }}
