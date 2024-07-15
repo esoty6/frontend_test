@@ -1,0 +1,111 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+$square-width-mobile: 60px;
+$square-width-desktop: 100px;
+
+.square {
+  width: $square-width-mobile;
+  aspect-ratio: 1;
+  // border: 2px solid $gray;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  overflow: visible;
+  font-size: 2rem;
+  line-height: 2.4rem;
+  font-weight: 500;
+  color: $footer;
+  justify-self: start;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: $square-width-mobile;
+    aspect-ratio: 1;
+    border: 2px solid $gray;
+
+    @include for-desktop-up {
+      width: $square-width-desktop;
+    }
+  }
+
+  @include for-desktop-up {
+    width: $square-width-desktop;
+    font-size: 2.8rem;
+    line-height: 3.4rem;
+  }
+
+  &:hover {
+    cursor: pointer;
+    color: $footer-text;
+
+    &::before {
+      border-color: $orange;
+      animation: rotate 0.6s cubic-bezier(0.47, 0, 0.745, 0.715) both;
+    }
+  }
+
+  & > * {
+    padding-left: 10px;
+  }
+}
+
+.hr-container {
+  position: relative;
+  display: none;
+
+  @include for-desktop-up {
+    display: block;
+  }
+}
+
+.hr {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 222px;
+  z-index: 1;
+  height: 1px;
+  transform: translateX(-50%);
+  color: $footer;
+  border: none;
+  border-bottom: 1px solid $footer;
+}
+
+.company-name {
+  position: relative;
+  background-color: $black;
+  z-index: 2;
+  padding: 0 4px;
+  color: $footer;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-items: center;
+  height: 100%;
+
+  @include for-desktop-up {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+app-dropdown {
+  justify-self: end;
+}
+
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

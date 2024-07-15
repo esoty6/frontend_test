@@ -1,0 +1,13 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.wrapper {
+  background-color: $black;
+  height: $wrapper-height;
+  font-size: 2rem;
+  padding: 0 $wrapper-padding-mobile;
+
+  @include for-desktop-up {
+    padding: 0 $wrapper-padding-desktop;
+  }
+}

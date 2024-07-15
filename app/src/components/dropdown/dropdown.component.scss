@@ -1,0 +1,89 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+$dropdown-width: 15vw;
+$dropdown-min-width: 160px;
+$dropdown-max-width: 320px;
+
+.dropdown {
+  width: $dropdown-width;
+  min-width: $dropdown-min-width;
+  max-width: $dropdown-max-width;
+  position: relative;
+  z-index: 2;
+}
+
+.chevron {
+  filter: invert(1) brightness(80%);
+
+  &--open {
+    transform: rotate(180deg);
+  }
+
+  [class^="dropdown"]:hover & {
+    filter: invert(1) brightness(120%);
+  }
+}
+
+.dropdown-content {
+  width: $dropdown-width;
+  min-width: $dropdown-min-width;
+  max-width: $dropdown-max-width;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: $white;
+  box-shadow: 0 0 10px 4px $black;
+  border-radius: 4px 4px 0 0;
+  padding: 12px 0;
+  height: auto;
+  display: flex;
+  flex-flow: column;
+  gap: 8px;
+  transition: all 0.25s ease-in;
+  visibility: hidden;
+  opacity: 0;
+
+  &--visible {
+    bottom: 105%;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  @include for-desktop-up {
+    right: $wrapper-padding-desktop;
+  }
+}
+
+.dropdown-item {
+  background: none;
+  border: none;
+  display: block;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  font-weight: 500;
+  padding-left: 12px;
+}
+
+.dropdown-item-wrapper {
+  display: flex;
+  align-items: center;
+
+  & > img {
+    transform: rotate(90deg);
+  }
+
+  &:hover {
+    color: $orange;
+
+    & > img {
+      filter: invert(47%) sepia(88%) saturate(1629%) hue-rotate(9deg)
+        brightness(101%) contrast(99%);
+    }
+  }
+}
+
+.dropdown-container {
+  position: relative;
+}

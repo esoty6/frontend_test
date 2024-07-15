@@ -1,0 +1,31 @@
+@use "variables" as *;
+
+.button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 1.6rem;
+  font-weight: 500;
+  border: 2px solid;
+  padding: 8px 12px;
+
+  &--primary {
+    // TODO
+  }
+
+  &--secondary {
+    color: $footer-text;
+    border-radius: 4px;
+    background-color: $black;
+    border-color: $gray;
+    text-transform: uppercase;
+
+    &:hover {
+      border-color: $white;
+      color: $white;
+    }
+  }
+}
